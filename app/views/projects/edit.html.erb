@@ -1,0 +1,10 @@
+<h1>Edit Project</h1>
+
+<%= render "layouts/project_form" %>
+
+<p><%= link_to "Delete project", project_path(@project), :data => {:confirm => "Delete #{@project.title}?", :method => "delete"} %> </p>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "Projects", projects_path %></p>
+  <p><%= link_to "Back to #{@project.title}", project_path(@project) %></p>
+<% end %>

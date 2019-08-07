@@ -1,0 +1,7 @@
+<h1>New Employee</h1>
+
+<%= render "layouts/employee_form" %>
+
+<% content_for(:nav) do %>
+<p><%= link_to "Divisions", divisions_path %></p>
+ <% end %>

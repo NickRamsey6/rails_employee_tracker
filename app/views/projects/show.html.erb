@@ -1,0 +1,21 @@
+<h1><%= @project.title %></h1>
+
+<p><%= link_to "Edit project", edit_project_path %></p>
+
+<h2>Avilable Employees:</h2>
+
+<% if @available_employees.any? %>
+  <% @available_employees.each do |employee| %>
+    <ul>
+      <li>
+        <%= link_to employee.name, division_employee_path(employee.division_id, employee.id) %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No employees are listed </p>
+<% end %>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "Projects", projects_path %></p>
+<% end %>

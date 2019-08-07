@@ -1,0 +1,12 @@
+<h1>Name: <%= @employee.name %></h1>
+<h2>Division: <%= @division.name %></h2>
+<h2>Current Project: </h2>
+
+<p><%= link_to "Edit employee", edit_division_employee_path(@division, @employee) %></p>
+<p><%= link_to "Fire employee", division_employee_path(@division, @employee),
+                        :data => {:confirm => "Release the hounds?",
+                                       :method => "delete"} %></p>
+
+<% content_for(:nav) do %>
+<p><%= link_to "Divisions", divisions_path %></p>
+ <% end %>

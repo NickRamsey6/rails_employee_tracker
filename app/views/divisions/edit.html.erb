@@ -1,0 +1,10 @@
+<h1>Edit Divisions</h1>
+
+<%= render "layouts/division_form" %>
+
+<p><%= link_to "Delete division", division_path(@division), :data => {:confirm => "Delete #{@division.name}?", :method => "delete"} %> </p>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "Divisions", divisions_path %></p>
+  <p><%= link_to "Back to #{@division.name}", division_path(@division) %></p>
+<% end %>

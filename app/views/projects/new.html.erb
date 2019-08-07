@@ -1,0 +1,7 @@
+<h1>New project</h1>
+
+<%= render "layouts/project_form" %>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "Projects", projects_path %></p>
+<% end %>
