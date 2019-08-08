@@ -36,6 +36,13 @@ class ProjectsController < ApplicationController
    redirect_to projects_path
  end
 
+ def update
+   @project = Project.find(params[:id])
+   @employee = Employee.find(params[:employee_id])
+   @project.employees.delete(@employee)
+   redirect_to projects_path
+ end
+
 
  private
  def project_params

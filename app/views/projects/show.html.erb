@@ -8,6 +8,7 @@
     <ul>
       <li>
         <p><%= link_to employee.name, division_employee_path(employee.division_id, employee.id) %></p>
+        <p><%= link_to "Unassign", project_path(@project, employee_id: employee.id), :data => {:method => "patch"}%></p
       </li>
     </ul>
   <% end %>
