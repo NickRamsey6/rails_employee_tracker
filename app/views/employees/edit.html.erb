@@ -1,0 +1,10 @@
+<h1>Edit employee</h1>
+
+<%= render "layouts/employee_form" %>
+
+<p><%= link_to "Delete employee", employee_path(@employee), :data => {:confirm => "Delete #{@employee.title}?", :method => "delete"} %> </p>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "employees", employees_path %></p>
+  <p><%= link_to "Back to #{@employee.title}", employee_path(@employee) %></p>
+<% end %>

@@ -1,7 +1,16 @@
 <h1>Name: <%= @employee.name %></h1>
 <h2>Division: <%= @division.name %></h2>
-<h2>Current Project: </h2>
+<h2>Current Projects:</h2>
 
+<% if @projects.any? %>
+<ul>
+  <% @projects.each do |project| %>
+    <li><%= link_to project.title, project_path(project.id) %></li>
+    <% end %>
+    </ul>
+    <% else %>
+    <p>No projects assigned</p>
+    <% end %>
 <p><%= link_to "Edit employee", edit_division_employee_path(@division, @employee) %></p>
 <p><%= link_to "Fire employee", division_employee_path(@division, @employee),
                         :data => {:confirm => "Release the hounds?",

@@ -2,13 +2,27 @@
 
 <p><%= link_to "Edit project", edit_project_path %></p>
 
+<h2>Assigned Employees:</h2>
+<% if @assigned_employees.any? %>
+  <% @assigned_employees.each do |employee| %>
+    <ul>
+      <li>
+        <p><%= link_to employee.name, division_employee_path(employee.division_id, employee.id) %></p>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No employees assigned </p>
+<% end %>
+
 <h2>Avilable Employees:</h2>
 
 <% if @available_employees.any? %>
   <% @available_employees.each do |employee| %>
     <ul>
       <li>
-        <%= link_to employee.name, division_employee_path(employee.division_id, employee.id) %>
+        <p><%= link_to employee.name, division_employee_path(employee.division_id, employee.id) %></p>
+        <p><%= link_to "Assign to Project", project_employee_path(@project, employee.id), :data => {:method => "patch"}%></p>
       </li>
     </ul>
   <% end %>

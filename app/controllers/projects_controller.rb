@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
  def show
    @project = Project.find(params[:id])
    @available_employees = Employee.all
+   @assigned_employees = @project.employees.distinct
    :show
  end
 
@@ -34,6 +35,7 @@ class ProjectsController < ApplicationController
    @project.destroy
    redirect_to projects_path
  end
+
 
  private
  def project_params
